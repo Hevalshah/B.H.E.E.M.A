@@ -61,7 +61,7 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-32 relative overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 md:pt-32 relative overflow-hidden">
         <div className="absolute w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full -top-1/4 -left-1/4 animate-pulse" />
         <div className="absolute w-[800px] h-[800px] bg-purple-600/10 blur-[120px] rounded-full -bottom-1/4 -right-1/4 animate-pulse" />
 
@@ -99,16 +99,16 @@ export default function LandingPage() {
               }}
             />
 
-            <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-none cursor-default relative z-10 select-none transition-all duration-700 group-hover:scale-110 group-hover:tracking-widest">
+            <h1 className="text-5xl md:text-[clamp(4rem,10vw,8rem)] font-black tracking-tighter leading-none cursor-default relative z-10 select-none transition-all duration-700 group-hover:scale-105 group-hover:tracking-widest">
               B.H.E.E.M.A
             </h1>
           </div>
 
-          <h2 className={`text-sm md:text-lg text-blue-400 font-medium tracking-[0.3em] uppercase mb-8 opacity-80 transition-all duration-700 ${isTitleHovered ? 'scale-125 translate-y-2' : 'scale-100'}`}>
+          <h2 className={`text-[10px] sm:text-xs md:text-sm lg:text-lg text-blue-400 font-medium tracking-[0.1em] md:tracking-[0.2em] lg:tracking-[0.3em] uppercase mb-8 opacity-80 transition-all duration-700 ${isTitleHovered ? 'scale-110 translate-y-1' : 'scale-100'}`}>
             Basic-Heuristic-Entity-Engineered For-Multitasking-Assistance
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mx-auto mb-10">
             An advanced AI-powered assistant designed to tackle complex, multitasking environments with
             <span className="text-white font-medium"> speed, intelligence, and adaptability</span>.
           </p>
