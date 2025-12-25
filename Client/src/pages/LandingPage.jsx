@@ -34,12 +34,12 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src={bheemaLogo} className="w-10 animate-float" />
-            <span className="tracking-widest font-bold text-xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">B.H.E.E.M.A</span>
+            <img src={bheemaLogo} className="w-10" />
+            <span className="tracking-widest font-bold text-xl text-white">B.H.E.E.M.A</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            {["Product", "Features", "Pricing", "About", "Changelog", "Contact"].map((item) => (
+            {["Product", "Features", "About", "Contact"].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-400 transition-colors uppercase tracking-widest text-[10px]">
                 {item}
               </a>
@@ -47,11 +47,14 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:block text-sm font-medium text-gray-300 hover:text-white transition">
+            <button
+              onClick={() => navigate("/login")}
+              className="hidden sm:block text-sm font-medium text-gray-300 hover:text-white transition"
+            >
               Login
             </button>
             <button
-              onClick={() => navigate("/app")}
+              onClick={() => navigate("/signup")}
               className="px-5 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all"
             >
               Sign Up
@@ -61,7 +64,7 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 md:pt-32 relative overflow-hidden">
+      <section id="product" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 md:pt-32 relative overflow-hidden">
         <div className="absolute w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full -top-1/4 -left-1/4 animate-pulse" />
         <div className="absolute w-[800px] h-[800px] bg-purple-600/10 blur-[120px] rounded-full -bottom-1/4 -right-1/4 animate-pulse" />
 
@@ -129,7 +132,7 @@ export default function LandingPage() {
       </section>
 
       {/* ARCHITECTURE / VISUAL SECTION */}
-      <section className="py-32 relative reveal">
+      <section id="about" className="py-32 relative reveal">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Neural Architecture</h2>
@@ -177,7 +180,7 @@ export default function LandingPage() {
       </section>
 
       {/* MISSION / FEATURES SECTION */}
-      <section className="py-32 bg-[#080A0F] reveal">
+      <section id="features" className="py-32 bg-[#080A0F] reveal">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 text-left reveal delay-100">
             <div className="max-w-xl">
@@ -232,26 +235,23 @@ export default function LandingPage() {
       <section className="py-32 flex justify-center px-6 relative overflow-hidden reveal">
         <div className="absolute inset-0 bg-blue-600/5 blur-[100px] rounded-full transform translate-y-1/2" />
         <div className="max-w-4xl w-full bg-gradient-to-b from-[#0B0F14] to-transparent p-16 rounded-[40px] text-center border border-white/5 relative z-10 reveal delay-200">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Ready to integrate B.H.E.E.M.A?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Experience the Next Frontier of Heuristic Intelligence</h2>
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
             Join the research initiative and experience the next generation of heuristic AI assistants.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <button
               onClick={() => navigate("/app")}
-              className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-500 transition-all shadow-[0_10px_30px_-10px_rgba(37,99,235,0.5)]"
+              className="px-12 py-5 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-500 transition-all shadow-[0_10px_30px_-10px_rgba(37,99,235,0.5)] active:scale-95"
             >
               Get Started Now
-            </button>
-            <button className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
-              Contact Sales
             </button>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-20 border-t border-white/5">
+      <footer id="contact" className="py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
@@ -290,6 +290,9 @@ export default function LandingPage() {
       </footer>
 
       <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
