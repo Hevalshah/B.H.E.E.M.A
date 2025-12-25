@@ -104,7 +104,7 @@ export default function LandingPage() {
             </h1>
           </div>
 
-          <h2 className="text-sm md:text-lg text-blue-400 font-medium tracking-[0.3em] uppercase mb-8 opacity-80">
+          <h2 className={`text-sm md:text-lg text-blue-400 font-medium tracking-[0.3em] uppercase mb-8 opacity-80 transition-all duration-700 ${isTitleHovered ? 'scale-125 translate-y-2' : 'scale-100'}`}>
             Basic-Heuristic-Entity-Engineered For-Multitasking-Assistance
           </h2>
 
