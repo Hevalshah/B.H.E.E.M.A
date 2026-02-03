@@ -7,6 +7,12 @@ export default function LandingPage() {
   const navigate = useNavigate()
   const [isTitleHovered, setIsTitleHovered] = useState(false)
 
+  const enterFullscreen = () => {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen()
+    }
+  }
+
   useEffect(() => {
     document.title = "B.H.E.E.M.A | Human-Like AI"
 
@@ -28,11 +34,12 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <main className="bg-[#05070A] text-white overflow-x-hidden">
+    <main className="bg-[#05070A] text-white overflow-x-hidden w-screen">
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/10 h-[72px]">
+        <div className="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+
           <div className="flex items-center gap-3">
             <img src={bheemaLogo} className="w-10" />
             <span className="tracking-widest font-bold text-xl text-white">B.H.E.E.M.A</span>
@@ -64,7 +71,12 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section id="product" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 md:pt-32 relative overflow-hidden">
+      <section
+  id="product"
+  className="min-h-[calc(100dvh-72px)] flex flex-col justify-start  items-center text-center px-6 pt-[140px] relative overflow-hidden"
+>
+
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#05070A] to-transparent" />
         <div className="absolute w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full -top-1/4 -left-1/4 animate-pulse" />
         <div className="absolute w-[800px] h-[800px] bg-purple-600/10 blur-[120px] rounded-full -bottom-1/4 -right-1/4 animate-pulse" />
 
@@ -118,7 +130,10 @@ export default function LandingPage() {
 
           <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${isTitleHovered ? 'opacity-0 scale-95 pointer-events-none translate-y-4' : 'opacity-100 scale-100'}`}>
             <button
-              onClick={() => navigate("/app")}
+              onClick={() => {
+              enterFullscreen()
+              navigate("/app")
+                }}
               className="group relative px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-all"
             >
               Get Started Free
@@ -293,6 +308,12 @@ export default function LandingPage() {
         html {
           scroll-behavior: smooth;
         }
+          html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }

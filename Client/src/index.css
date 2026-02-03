@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🔑 CRITICAL: viewport normalization */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: -50;
+  padding: 0;
+}
+
+/* Prevent phantom horizontal scroll */
 body {
   background: #05070A;
+  overflow-x: hidden;
 }
